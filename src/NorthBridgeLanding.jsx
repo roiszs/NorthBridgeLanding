@@ -207,15 +207,19 @@ const translations = {
 };
 
 const NorthBridgeLanding = () => {
-  const [lang, setLang] = useState("es");
+    const [lang, setLang] = useState("es");
+  const [mobileOpen, setMobileOpen] = useState(false); // 👈 NUEVO
+
   const t = translations[lang];
 
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setMobileOpen(false); // 👈 cerrar menú al dar click
     }
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -227,7 +231,7 @@ const NorthBridgeLanding = () => {
     );
   };
 
-  return (
+    return (
     <div className="nb-root">
       {/* HEADER */}
       <header className="nb-header">
@@ -244,7 +248,8 @@ const NorthBridgeLanding = () => {
             </div>
           </div>
 
-          <nav className="nb-nav">
+          {/* NAV ESCRITORIO */}
+          <nav className="nb-nav nb-nav-desktop">
             <button onClick={() => handleScrollTo("home")}>
               {t.navbar.home}
             </button>
@@ -262,7 +267,8 @@ const NorthBridgeLanding = () => {
             </button>
           </nav>
 
-          <div className="nb-header-actions">
+          {/* ACCIONES ESCRITORIO */}
+          <div className="nb-header-actions nb-header-actions-desktop">
             <div className="nb-lang-toggle">
               <button
                 className={lang === "es" ? "active" : ""}
@@ -285,7 +291,63 @@ const NorthBridgeLanding = () => {
               {t.hero.primaryCta}
             </button>
           </div>
+
+          {/* BOTÓN MENÚ MÓVIL */}
+          <button
+            className="nb-mobile-menu-btn"
+            onClick={() => setMobileOpen((prev) => !prev)}
+          >
+            <span className="nb-mobile-menu-icon">
+              {mobileOpen ? "✕" : "☰"}
+            </span>
+          </button>
         </div>
+
+        {/* MENÚ DESPLEGABLE MÓVIL */}
+        {mobileOpen && (
+          <div className="nb-nav-mobile">
+            <nav>
+              <button onClick={() => handleScrollTo("home")}>
+                {t.navbar.home}
+              </button>
+              <button onClick={() => handleScrollTo("services")}>
+                {t.navbar.services}
+              </button>
+              <button onClick={() => handleScrollTo("approach")}>
+                {t.navbar.approach}
+              </button>
+              <button onClick={() => handleScrollTo("results")}>
+                {t.navbar.results}
+              </button>
+              <button onClick={() => handleScrollTo("contact")}>
+                {t.navbar.contact}
+              </button>
+            </nav>
+            <div className="nb-nav-mobile-footer">
+              <div className="nb-lang-toggle">
+                <button
+                  className={lang === "es" ? "active" : ""}
+                  onClick={() => setLang("es")}
+                >
+                  ES
+                </button>
+                <span className="nb-lang-divider">/</span>
+                <button
+                  className={lang === "en" ? "active" : ""}
+                  onClick={() => setLang("en")}
+                >
+                  EN
+                </button>
+              </div>
+              <button
+                className="nb-btn nb-btn-primary nb-btn-mobile-cta"
+                onClick={() => handleScrollTo("contact")}
+              >
+                {t.hero.primaryCta}
+              </button>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* MAIN */}
