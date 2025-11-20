@@ -528,9 +528,68 @@
   .nb-header-inner {
     gap: 0.75rem;
   }
-  .nb-nav {
+
+  /* Ocultamos nav y acciones de escritorio */
+  .nb-nav-desktop,
+  .nb-header-actions-desktop {
     display: none;
   }
+
+  /* Mostramos botón menú */
+  .nb-mobile-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Nav móvil visible y bonito */
+  .nb-nav-mobile {
+    display: block;
+    position: fixed;
+    top: 4.25rem;
+    left: 0;
+    right: 0;
+    z-index: 35;
+    background: rgba(5, 7, 20, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.9rem 1.2rem 1.2rem;
+  }
+
+  .nb-nav-mobile nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .nb-nav-mobile nav button {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0.45rem 0.2rem;
+    font-size: 0.92rem;
+    color: rgba(245, 245, 247, 0.86);
+    border-radius: 0.5rem;
+  }
+
+  .nb-nav-mobile nav button:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .nb-nav-mobile-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .nb-btn-mobile-cta {
+    flex: 1;
+    padding-inline: 0.9rem;
+  }
+
+  /* Ajustes generales móviles */
   .nb-hero-grid,
   .nb-grid-3,
   .nb-grid-2,
@@ -538,20 +597,44 @@
   .nb-contact-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .nb-section {
+    padding: 3rem 0;
+  }
+
   .nb-hero {
     padding-top: 3.5rem;
   }
+
+  .nb-hero-title {
+    font-size: 2rem;
+  }
+
+  .nb-hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .nb-container {
+    padding: 0 1.25rem;
+  }
+
   .nb-hero-card {
     justify-content: flex-start;
+    margin-top: 1.5rem;
   }
 }
 
 @media (max-width: 600px) {
   .nb-section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
   .nb-hero-title {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+  }
+  .nb-section-title {
+    font-size: 1.6rem;
+  }
+  .nb-hero-card-inner {
+    max-width: 100%;
   }
 }
-
