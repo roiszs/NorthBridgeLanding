@@ -665,3 +665,10 @@ html, body, #root {
     max-width: 100%;
   }
 }
+@media (max-width: 900px) {
+  .nb-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
