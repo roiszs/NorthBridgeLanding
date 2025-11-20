@@ -20,7 +20,11 @@
   top: 0;
   z-index: 40;
   backdrop-filter: blur(18px);
-  background: linear-gradient(to bottom, rgba(2, 4, 15, 0.92), rgba(2, 3, 10, 0.75));
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 4, 15, 0.92),
+    rgba(2, 3, 10, 0.75)
+  );
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -140,8 +144,8 @@
   filter: brightness(1.04);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
 }
-/* HEADER MOBILE */
-/* BOTÓN MENÚ MÓVIL */
+
+/* BOTÓN MENÚ MÓVIL (oculto por defecto) */
 .nb-mobile-menu-btn {
   display: none;
   background: none;
@@ -156,7 +160,7 @@
   color: #f5f5f7;
 }
 
-/* NAV MÓVIL DESPLEGABLE */
+/* NAV MÓVIL (oculto por defecto) */
 .nb-nav-mobile {
   display: none;
 }
@@ -529,20 +533,20 @@
     gap: 0.75rem;
   }
 
-  /* Ocultamos nav y acciones de escritorio */
+  /* Ocultar nav y acciones de escritorio */
   .nb-nav-desktop,
   .nb-header-actions-desktop {
     display: none;
   }
 
-  /* Mostramos botón menú */
+  /* Mostrar botón de menú móvil */
   .nb-mobile-menu-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* Nav móvil visible y bonito */
+  /* Nav móvil */
   .nb-nav-mobile {
     display: block;
     position: fixed;
@@ -589,7 +593,6 @@
     padding-inline: 0.9rem;
   }
 
-  /* Ajustes generales móviles */
   .nb-hero-grid,
   .nb-grid-3,
   .nb-grid-2,
