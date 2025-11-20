@@ -159,6 +159,15 @@ html, body, #root {
   filter: brightness(1.04);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
 }
+.nb-header,
+.nb-nav-mobile {
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 
 /* BOTÓN MENÚ MÓVIL (oculto por defecto) */
 .nb-mobile-menu-btn {
