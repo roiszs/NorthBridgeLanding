@@ -1,4 +1,4 @@
-// ProyectoNorthBridgeLanding.jsx
+// src/NorthBridgeLanding.jsx
 import React, { useState } from "react";
 
 const translations = {
@@ -14,7 +14,8 @@ const translations = {
     },
     hero: {
       badge: "Estrategia de negocios & Transformación digital",
-      title: "Conectamos tu estrategia de negocio con soluciones digitales que sí ejecutan.",
+      title:
+        "Conectamos tu estrategia de negocio con soluciones digitales que sí ejecutan.",
       subtitle:
         "NorthBridge Consulting ayuda a PyMEs y empresas en crecimiento a alinear sus objetivos con proyectos de transformación digital medibles y accionables.",
       primaryCta: "Agendar una llamada",
@@ -100,7 +101,10 @@ const translations = {
       },
     },
     footer: {
-      text: "© " + new Date().getFullYear() + " NorthBridge Consulting. Todos los derechos reservados.",
+      text:
+        "© " +
+        new Date().getFullYear() +
+        " NorthBridge Consulting. Todos los derechos reservados.",
     },
   },
   en: {
@@ -201,29 +205,29 @@ const translations = {
       },
     },
     footer: {
-      text: "© " + new Date().getFullYear() + " NorthBridge Consulting. All rights reserved.",
+      text:
+        "© " +
+        new Date().getFullYear() +
+        " NorthBridge Consulting. All rights reserved.",
     },
   },
 };
 
 const NorthBridgeLanding = () => {
-    const [lang, setLang] = useState("es");
-  const [mobileOpen, setMobileOpen] = useState(false); // 👈 NUEVO
-
+  const [lang, setLang] = useState("es");
+  const [mobileOpen, setMobileOpen] = useState(false);
   const t = translations[lang];
 
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
-      setMobileOpen(false); // 👈 cerrar menú al dar click
+      setMobileOpen(false); // cerrar menú mobile si está abierto
     }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí podemos integrar EmailJS, un backend, etc.
     alert(
       lang === "es"
         ? "Gracias por tu mensaje. Te contactaremos pronto."
@@ -231,7 +235,7 @@ const NorthBridgeLanding = () => {
     );
   };
 
-    return (
+  return (
     <div className="nb-root">
       {/* HEADER */}
       <header className="nb-header">
@@ -303,7 +307,7 @@ const NorthBridgeLanding = () => {
           </button>
         </div>
 
-        {/* MENÚ DESPLEGABLE MÓVIL */}
+        {/* MENÚ MÓVIL */}
         {mobileOpen && (
           <div className="nb-nav-mobile">
             <nav>
@@ -526,7 +530,10 @@ const NorthBridgeLanding = () => {
                 <label>{t.contact.form.message}</label>
                 <textarea rows="4" required />
               </div>
-              <button type="submit" className="nb-btn nb-btn-primary nb-btn-full">
+              <button
+                type="submit"
+                className="nb-btn nb-btn-primary nb-btn-full"
+              >
                 {t.contact.form.submit}
               </button>
             </form>
